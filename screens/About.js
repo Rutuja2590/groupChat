@@ -6,6 +6,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 class About extends Component {
+
+    
     constructor(props) {
         super(props);
         this.state = {
@@ -16,6 +18,7 @@ class About extends Component {
         }
     }
 
+    
 
     selectContact(item) {
         if (!item.Choose) {
@@ -60,6 +63,20 @@ class About extends Component {
         })
     }
 
+    showAlert = () => {
+        Alert.alert("You are no longer participant of the group")
+        
+    }
+
+    navg = () => {
+        this.props.navigation.navigate('GroupChat')
+    }
+
+    combineFunc = () => {
+        this.showAlert();
+        this.navg();
+    }
+    
     render() {
         return (
            
@@ -168,7 +185,7 @@ class About extends Component {
                             />
                             <TouchableOpacity
                                 style={styles.button}
-                                onPress={() => Alert.alert('Exit the group')}>
+                                onPress={this.combineFunc}>
                                 <Text style={styles.textBtn}>Exit</Text>
                             </TouchableOpacity>
                         </View>
